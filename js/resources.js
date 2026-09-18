@@ -79,7 +79,8 @@
     "preposition-gerund": "verbs-prepositions",
     "verb-preposition": "verbs-prepositions",
     "irregular-plurals": "grammar-details",
-    "musical-instruments": "grammar-details"
+    "musical-instruments": "grammar-details",
+    "do-does-vs-be": "simple-vs-continuous"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -110,6 +111,7 @@
     "preposition-gerund": "Verbo depois de preposição (+ -ing)",
     "verb-preposition": "Verbo + preposição (listen to, go home)",
     "irregular-plurals": "Plural irregular (child → children)",
-    "musical-instruments": "Instrumentos musicais + \"the\""
+    "musical-instruments": "Instrumentos musicais + \"the\"",
+    "do-does-vs-be": "Do/Does (auxiliar sem significado) x verbo to be (com significado)"
   };
 })();

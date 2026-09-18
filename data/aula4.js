@@ -5,6 +5,12 @@
 // na correção de tarefa da aula ao vivo de 14/09, que revisou -es/-ies, have→has, plural
 // irregular child→children, ordem da pergunta, "ever", "listen to" e "go home" sem preposição).
 // Frases originais, inspiradas no material, não copiadas dos documentos.
+//
+// 2º lote (mesmo tema, formatos novos em vez de mais completar lacuna): achar o erro
+// (error-correction), tradução PT→EN (translation), resposta curta (short-answers), ordem da
+// pergunta (questions-word-order) — todos girando em torno de stative x dynamic e verbos de
+// sentido duplo — + reforço de erros reais da correção da aula (have→has, -es/-ies, do/does sem
+// significado x verbo to be com significado) + um 2º texto de leitura em formato de diálogo.
 (function () {
   window.QUIZ_AULAS = window.QUIZ_AULAS || [];
 
@@ -383,6 +389,225 @@
         prompt: "Complete: She's playing ___ piano beautifully.",
         accept: ["the"],
         explanation: "Instrumentos musicais sempre levam o artigo \"the\" depois do verbo \"play\": play the piano, the guitar, the violin."
+      },
+      {
+        id: "a4-mc-25",
+        type: "mc",
+        topic: "error-correction",
+        prompt: "Qual frase está ERRADA?",
+        options: ["I'm knowing the answer.", "I know the answer.", "She knows the answer."],
+        answer: "I'm knowing the answer.",
+        explanation: "\"Know\" é verbo de estado — nunca vai pro contínuo. O certo é \"I know the answer.\""
+      },
+      {
+        id: "a4-mc-26",
+        type: "mc",
+        topic: "error-correction",
+        prompt: "Qual é a correção de \"She's wanting to leave early today.\"?",
+        options: ["She wants to leave early today.", "She want to leave early today.", "She's want to leave early today."],
+        answer: "She wants to leave early today.",
+        explanation: "\"Want\" é estado — fica no simples, e \"she\" pede o -s: wants."
+      },
+      {
+        id: "a4-mc-27",
+        type: "mc",
+        topic: "error-correction",
+        prompt: "Uma destas frases tem erro. Qual?",
+        options: ["He's always losing his keys.", "He's always lose his keys.", "He always loses his keys."],
+        answer: "He's always lose his keys.",
+        explanation: "Depois do to be (is), o verbo principal precisa do -ing: is always LOSING, nunca \"is always lose\"."
+      },
+      {
+        id: "a4-mc-28",
+        type: "mc",
+        topic: "error-correction",
+        prompt: "Qual é a correção de \"I'm liking this movie a lot.\"?",
+        options: ["I like this movie a lot.", "I likes this movie a lot.", "I'm like this movie a lot."],
+        answer: "I like this movie a lot.",
+        explanation: "\"Like\" é verbo de estado — nunca \"I'm liking\", mesmo sendo comum em propagandas."
+      },
+      {
+        id: "a4-mc-29",
+        type: "mc",
+        topic: "error-correction",
+        prompt: "Qual destas frases está ERRADA?",
+        options: ["Look, he's dancing!", "Look, he dance!", "He dances every weekend."],
+        answer: "Look, he dance!",
+        explanation: "\"He dance\" não existe nem no simples (faltaria o -s: he dances) nem no contínuo (faltaria is: he's dancing). \"Look!\" pede o contínuo: Look, he's dancing!"
+      },
+      {
+        id: "a4-mc-30",
+        type: "mc",
+        topic: "translation",
+        prompt: "Como se diz: \"Eu não acredito em você.\"",
+        options: ["I don't believe you.", "I'm not believing you.", "I no believe you."],
+        answer: "I don't believe you.",
+        explanation: "\"Believe\" é verbo de estado — negativa sempre no simples: don't believe."
+      },
+      {
+        id: "a4-mc-31",
+        type: "mc",
+        topic: "translation",
+        prompt: "Como se diz: \"Ela está namorando alguém novo.\"",
+        options: ["She's seeing someone new.", "She sees someone new.", "She's looking someone new."],
+        answer: "She's seeing someone new.",
+        explanation: "\"See\" no contínuo, nesse sentido, significa estar envolvido romanticamente com alguém."
+      },
+      {
+        id: "a4-mc-32",
+        type: "mc",
+        topic: "translation",
+        prompt: "Como se diz: \"Este café tem gosto de queimado.\"",
+        options: ["This coffee tastes burnt.", "This coffee is tasting burnt.", "This coffee taste burnt."],
+        answer: "This coffee tastes burnt.",
+        explanation: "\"Taste\" no sentido de \"ter gosto de\" é estado → simples. \"This coffee\" = it → tastes."
+      },
+      {
+        id: "a4-mc-33",
+        type: "mc",
+        topic: "translation",
+        prompt: "Como se diz: \"Estou pensando em comprar um carro novo.\"",
+        options: [
+          "I'm thinking about buying a new car.",
+          "I think about buy a new car.",
+          "I'm thinking about buy a new car."
+        ],
+        answer: "I'm thinking about buying a new car.",
+        explanation: "\"Think\" no sentido de usar o cérebro ativamente é contínuo, e o verbo depois da preposição \"about\" sempre vai pro -ing: buying."
+      },
+      {
+        id: "a4-mc-34",
+        type: "mc",
+        topic: "translation",
+        prompt: "Como se diz: \"Ele está sendo muito grosso hoje, não é do feitio dele.\"",
+        options: ["He's being very rude today.", "He's very rude today.", "He is very rude today."],
+        answer: "He's being very rude today.",
+        explanation: "\"Be\" no contínuo indica um comportamento temporário e fora do normal da pessoa — exatamente o caso aqui."
+      },
+      {
+        id: "a4-mc-35",
+        type: "mc",
+        topic: "short-answers",
+        prompt: "Do you understand the exercise? — No, I ___.",
+        options: ["don't", "isn't", "doesn't"],
+        answer: "don't",
+        explanation: "\"Understand\" é estado, mas a resposta curta segue a pergunta: pergunta com \"do\" → No, I don't."
+      },
+      {
+        id: "a4-mc-36",
+        type: "mc",
+        topic: "short-answers",
+        prompt: "Is she always losing her phone? — Yes, she ___.",
+        options: ["is", "does", "has"],
+        answer: "is",
+        explanation: "Pergunta com \"is\" (contínuo + always) → resposta curta com is: Yes, she is."
+      },
+      {
+        id: "a4-mc-37",
+        type: "mc",
+        topic: "short-answers",
+        prompt: "Is he playing video games right now? — No, he ___.",
+        options: ["isn't", "doesn't", "don't"],
+        answer: "isn't",
+        explanation: "Pergunta com \"is\" → resposta curta com isn't. Nunca repete o verbo principal (não é \"No, he isn't playing\")."
+      },
+      {
+        id: "a4-fill-14",
+        type: "fill",
+        topic: "short-answers",
+        prompt: "Complete a resposta curta: Do they believe in ghosts? — No, they ___.",
+        accept: ["don't"],
+        explanation: "\"Believe\" é estado, mas a pergunta usou \"do\", então a resposta curta é: No, they don't."
+      },
+      {
+        id: "a4-mc-38",
+        type: "mc",
+        topic: "questions-word-order",
+        prompt: "Qual pergunta está correta?",
+        options: ["What does this word mean?", "What means this word?", "What this word means?"],
+        answer: "What does this word mean?",
+        explanation: "Ordem da pergunta: palavra interrogativa → auxiliar (does) → sujeito → verbo principal: What does this word mean?"
+      },
+      {
+        id: "a4-mc-39",
+        type: "mc",
+        topic: "questions-word-order",
+        prompt: "Qual destas perguntas está correta?",
+        options: [
+          "Do you ever go to the movies?",
+          "Do you go ever to the movies?",
+          "Ever do you go to the movies?"
+        ],
+        answer: "Do you ever go to the movies?",
+        explanation: "\"Ever\" sempre vem imediatamente antes do verbo principal, depois do sujeito: Do you EVER go..."
+      },
+      {
+        id: "a4-fill-15",
+        type: "fill",
+        topic: "questions-word-order",
+        prompt: "Coloque na ordem certa: usually / drive / to work / does / Martin ?",
+        accept: ["does martin usually drive to work", "does martin usually drive to work?"],
+        explanation: "Ordem: auxiliar (does) → sujeito → advérbio de frequência (usually) → verbo principal → resto da frase."
+      },
+      {
+        id: "a4-fill-16",
+        type: "fill",
+        topic: "questions-word-order",
+        prompt: "Coloque na ordem certa: are / you / seeing / anyone ?",
+        accept: ["are you seeing anyone", "are you seeing anyone?"],
+        explanation: "Pergunta no contínuo: to be (are) → sujeito (you) → verbo-ing (seeing) → resto (anyone)."
+      },
+      {
+        id: "a4-mc-40",
+        type: "mc",
+        topic: "third-person-s",
+        prompt: "Qual frase está correta?",
+        options: ["My uncle has two dogs.", "My uncle haves two dogs.", "My uncle have two dogs."],
+        answer: "My uncle has two dogs.",
+        explanation: "\"Have\" é irregular — a 3ª pessoa é \"has\", nunca \"haves\"."
+      },
+      {
+        id: "a4-mc-41",
+        type: "mc",
+        topic: "third-person-s",
+        prompt: "Qual é a forma correta do verbo \"finish\" com \"she\"?",
+        options: ["finishes", "finishs", "finish"],
+        answer: "finishes",
+        explanation: "Verbos terminados em SH, CH, SS, X ou US recebem -ES na 3ª pessoa: finishes."
+      },
+      {
+        id: "a4-mc-42",
+        type: "mc",
+        topic: "third-person-s",
+        prompt: "Qual é a forma correta do verbo \"try\" com \"he\"?",
+        options: ["tries", "trys", "try"],
+        answer: "tries",
+        explanation: "Verbo terminado em Y precedido de consoante troca o Y por -IES na 3ª pessoa: tries."
+      },
+      {
+        id: "a4-mc-43",
+        type: "mc",
+        topic: "do-does-vs-be",
+        prompt: "Qual frase está correta?",
+        options: ["What does your sister do?", "What is your sister do?", "What is your sister doing do?"],
+        answer: "What does your sister do?",
+        explanation: "\"Does\" aqui é só auxiliar, sem significado próprio — não precisamos do verbo to be porque não estamos falando de \"ser/estar\"."
+      },
+      {
+        id: "a4-fill-17",
+        type: "fill",
+        topic: "do-does-vs-be",
+        prompt: "Complete: ___ your father usually finish work late? (pergunta sobre a rotina dele, sem sentido de \"ser/estar\")",
+        accept: ["does"],
+        explanation: "\"Do/does\" não tem significado próprio, é só auxiliar de pergunta/negativa. O verbo to be é que carrega o sentido de \"ser/estar\" — aqui não precisamos dele."
+      },
+      {
+        id: "a4-fill-18",
+        type: "fill",
+        topic: "frequency-adverbs",
+        prompt: "Complete: Martin ___ (usually/not/drive) to work — he prefers walking.",
+        accept: ["doesn't usually drive"],
+        explanation: "Ordem na negativa: auxiliar (doesn't) → advérbio de frequência (usually) → verbo principal (drive)."
       }
     ],
 
@@ -478,6 +703,106 @@
             ],
             answer: "He's looking at it and thinking about how to fix a bug.",
             explanation: "\"Right now, Marcelo is looking at Paulo's code... and thinking about the best way to fix a bug\" — os dois no contínuo, porque é algo acontecendo neste momento."
+          }
+        ]
+      },
+      {
+        id: "a4-passage-2",
+        title: "Ana e Bia trocam mensagens depois do feriado (diálogo)",
+        text:
+          "Ana: Hey! Sorry I didn't answer earlier — I was at the movies with my boyfriend. We " +
+          "watched a really weird movie about magic.\n" +
+          "Bia: No problem! How's everything? Are you still living downtown?\n" +
+          "Ana: Yes, I love it there, but it's getting expensive. Anyway, guess what — I'm having a " +
+          "great time these days. Work is calm and I'm learning to play the guitar!\n" +
+          "Bia: That's awesome! I don't remember you liking music that much before.\n" +
+          "Ana: I know, right? I think it's because my new roommate always practices at home — " +
+          "she's always leaving her guitar in the living room, so I just pick it up and try.\n" +
+          "Bia: Ha, that's actually a great habit to catch! Hey, are you seeing anyone these days?\n" +
+          "Ana: Not really, I'm just enjoying being single for a while. What about you — do you " +
+          "still work with Marcos?\n" +
+          "Bia: Yes, he's a great boss, but sometimes I don't understand him — he's usually so " +
+          "calm, but yesterday he was being really impatient with everyone.\n" +
+          "Ana: Weird! Well, I have to go, I'm meeting a friend for coffee. Talk soon!\n" +
+          "Bia: Sounds good. Listen to some good music for me! Bye!",
+        questions: [
+          {
+            id: "a4-r-7",
+            type: "mc",
+            topic: "reading-comprehension",
+            prompt: "Why didn't Ana answer earlier?",
+            options: [
+              "She was at the movies with her boyfriend.",
+              "She was sleeping.",
+              "She was working late."
+            ],
+            answer: "She was at the movies with her boyfriend.",
+            explanation: "\"I was at the movies with my boyfriend. We watched a really weird movie about magic.\""
+          },
+          {
+            id: "a4-r-8",
+            type: "mc",
+            topic: "dual-meaning-verbs",
+            prompt: "What does \"I'm having a great time these days\" mean?",
+            options: [
+              "She's experiencing/enjoying good days.",
+              "She owns something great.",
+              "She's about to throw a party."
+            ],
+            answer: "She's experiencing/enjoying good days.",
+            explanation: "\"Have\" no contínuo, aqui, significa vivenciar/experimentar algo bom — não tem nada a ver com posse."
+          },
+          {
+            id: "a4-r-9",
+            type: "mc",
+            topic: "continuous-always",
+            prompt: "\"She's always leaving her guitar in the living room\" sugere que...",
+            options: [
+              "É um hábito frequente da colega de quarto.",
+              "Aconteceu só uma vez.",
+              "A colega de quarto nunca toca guitarra."
+            ],
+            answer: "É um hábito frequente da colega de quarto.",
+            explanation: "Contínuo + \"always\" descreve algo que se repete — aqui, sem ser uma reclamação, só reforça que é bem frequente."
+          },
+          {
+            id: "a4-r-10",
+            type: "mc",
+            topic: "dual-meaning-verbs",
+            prompt: "O que a pergunta de Bia, \"Are you seeing anyone these days?\", está perguntando?",
+            options: [
+              "Se Ana está namorando alguém.",
+              "Se Ana consegue enxergar bem.",
+              "Se Ana tem uma consulta marcada."
+            ],
+            answer: "Se Ana está namorando alguém.",
+            explanation: "\"See\" no contínuo, nesse contexto, significa estar envolvido romanticamente com alguém."
+          },
+          {
+            id: "a4-r-11",
+            type: "mc",
+            topic: "dual-meaning-verbs",
+            prompt: "\"He was being really impatient with everyone\" significa que...",
+            options: [
+              "A impaciência do Marcos ontem foi algo temporário/atípico para ele.",
+              "Marcos é sempre uma pessoa impaciente.",
+              "Marcos não foi trabalhar ontem."
+            ],
+            answer: "A impaciência do Marcos ontem foi algo temporário/atípico para ele.",
+            explanation: "\"Be\" no contínuo indica comportamento temporário e fora do normal — contrasta com \"he's usually so calm\"."
+          },
+          {
+            id: "a4-r-12",
+            type: "mc",
+            topic: "stative-vs-dynamic",
+            prompt: "Por que Ana diz \"I don't remember you liking music that much before\" e não \"I'm not remembering\"?",
+            options: [
+              "Porque \"remember\" é verbo de estado — nunca vai pro contínuo.",
+              "Porque a frase fala do futuro.",
+              "Porque \"remember\" só precisa de \"do\" em perguntas."
+            ],
+            answer: "Porque \"remember\" é verbo de estado — nunca vai pro contínuo.",
+            explanation: "\"Remember\" é um verbo de estado (processo mental) — mesmo na negativa, fica sempre no presente simples: I don't remember."
           }
         ]
       }
