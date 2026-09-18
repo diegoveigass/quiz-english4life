@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz English4Life</title>
+<script src="vendor/tailwind.js"></script>
+<style>
+  /* Pequenos detalhes que o Tailwind puro não cobre bem (scrollbar e foco de inputs). */
+  body { -webkit-font-smoothing: antialiased; }
+  .answer-input:focus { outline: none; }
+
+  /* ---------- Tema escuro ----------
+     A tela inteira é montada com utilitários do Tailwind escritos direto no HTML e no app.js.
+     Em vez de espalhar um "dark:" em cada classe (e ter que lembrar disso em toda tela nova),
+     o modo escuro remapeia aqui, num lugar só, as poucas cores que o app realmente usa.
+     Os seletores começam com html.dark, então têm especificidade maior que a do utilitário
+     original e não precisam de !important. Para mudar a cara do tema escuro, é só mexer aqui. */
+  html.dark { color-scheme: dark; }
+
+  /* Superfícies */
+  html.dark .bg-slate-50 { background-color: #0f172a; }
+  html.dark .bg-white { background-color: #1e293b; }
+  html.dark .bg-slate-100,
+  html.dark .hover\:bg-slate-100:hover { background-color: #334155; }
+
+  /* Bordas e divisores */
+  html.dark .border-slate-200 { border-color: #334155; }
+  html.dark .border-slate-300 { border-color: #475569; }
+  html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #334155; }
+
+  /* Escala de texto */
+  html.dark .text-slate-900 { color: #f1f5f9; }
+  html.dark .text-slate-800 { color: #e2e8f0; }
+  html.dark .text-slate-700,
+  html.dark .text-slate-600 { color: #cbd5e1; }
+  html.dark .text-slate-500 { color: #94a3b8; }
+  html.dark .text-slate-400 { color: #7f8ea5; }
+  /* O campo de resposta não tem classe de fundo (usava o branco padrão do navegador), então
+     no escuro ele precisa ser pintado à mão — senão fica com o cinza padrão do sistema. */
+  html.dark .answer-input { background-color: #0f172a; color: #e2e8f0; }
+  html.dark .answer-input::placeholder { color: #64748b; }
+
+  /* Destaque (indigo): abas, opção escolhida, links de reforço */
+  html.dark .bg-indigo-50,
+  html.dark .hover\:bg-indigo-50:hover { background-color: #312e81; }
+  html.dark .hover\:border-indigo-300:hover { border-color: #4f46e5; }
+  html.dark .border-indigo-500,
+  html.dark .focus\:border-indigo-500:focus { border-color: #818cf8; }
+  html.dark .focus\:ring-indigo-100:focus { --tw-ring-color: #3730a3; }
+  html.dark .text-indigo-600 { color: #a5b4fc; }
+  html.dark .hover\:text-indigo-800:hover { color: #c7d2fe; }
+
+  /* Feedback de acerto, erro e dicas */
+  html.dark .bg-emerald-50 { background-color: #0b3a2e; }
+  html.dark .border-emerald-300 { border-color: #10b981; }
+  html.dark .border-emerald-400 { border-color: #34d399; }
+  html.dark .text-emerald-700,
+  html.dark .text-emerald-800 { color: #6ee7b7; }
+  html.dark .bg-rose-50 { background-color: #4c1626; }
+  html.dark .border-rose-300 { border-color: #f43f5e; }
+  html.dark .border-rose-400 { border-color: #fb7185; }
+  html.dark .text-rose-800 { color: #fda4af; }
+  html.dark .bg-amber-50 { background-color: #3b2b0a; }
+  html.dark .border-amber-200 { border-color: #78350f; }
+  html.dark .text-amber-700,
+  html.dark .text-amber-800 { color: #fcd34d; }
+  html.dark .text-amber-900 { color: #fde68a; }
+</style>
+<script>
+  // Aplica o tema salvo antes da primeira pintura, pra não "piscar" branco ao abrir no escuro.
+  // A troca em si (botão, persistência) fica em js/theme.js.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("quizEnglish4Life.theme.v1"); } catch (e) {}
+    var dark = saved
+      ? saved === "dark"
+      : !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    if (dark) document.documentElement.classList.add("dark");
+  })();
+</script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto max-w-3xl px-4 py-5 sm:px-6">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900">📘 Quiz English4Life</h1>
+          <p class="mt-1 text-sm text-slate-500">Exercícios extras baseados nas suas aulas — uma aba por aula.</p>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+          <div class="flex flex-wrap items-center justify-end gap-2">
+            <button id="theme-btn" type="button" aria-pressed="false" title="Alternar entre tema claro e escuro"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-600 shadow-sm hover:bg-slate-100">
+              <span id="theme-icon">🌙</span> <span id="theme-label">Modo escuro</span>
+            </button>
+            <button id="scan-btn"
+              class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 active:bg-indigo-800">
+              <span>🔎</span> Verificar pasta do curso
+            </button>
+          </div>
+          <span id="scan-hint" class="text-xs text-slate-400"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-6 sm:px-6">
+
+    <!-- Painel de varredura de pasta / aulas pendentes -->
+    <section id="scan-panel" class="mb-6 hidden rounded-xl border border-slate-200 bg-white p-4 shadow-sm"></section>
+
+    <!-- Abas das aulas -->
+    <nav id="tabs" class="mb-6 flex flex-wrap gap-2"></nav>
+
+    <!-- Card de teoria/dicas da aula ativa -->
+    <section id="theory-panel" class="mb-6"></section>
+
+    <!-- Área do quiz (início, pergunta atual, resumo) -->
+    <section id="quiz-panel" class="mb-6"></section>
+
+    <!-- Desempenho histórico por tema -->
+    <section id="performance-panel"></section>
+
+  </main>
+
+  <footer class="mx-auto max-w-3xl px-4 pb-10 pt-4 text-center text-xs text-slate-400">
+    Roda 100% local no seu navegador — nada é enviado para a internet. Progresso salvo neste navegador.
+  </footer>
+
+  <!-- Dados das aulas (adicionar uma aula nova = criar data/aulaN.js + incluir aqui) -->
+  <script src="data/aula1.js"></script>
+  <script src="data/aula2.js"></script>
+  <script src="data/aula3.js"></script>
+  <script src="data/aula4.js"></script>
+
+  <!-- Lógica do app -->
+  <script src="js/theme.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/progress-store.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/folder-watcher.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
