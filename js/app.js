@@ -131,7 +131,9 @@
       answered: false,
       selected: null,
       inputValue: "",
-      optionsForCurrent: null
+      optionsForCurrent: null,
+      parts: null,
+      lastParts: null
     };
     prepareCurrentOptions();
     renderQuizPanel();
@@ -140,28 +142,51 @@
   // Uma pergunta é de múltipla escolha sempre que tiver "options" e não for explicitamente do
   // tipo "fill" — assim, esquecer o campo "type" numa aula nova não quebra a tela (cai em mc).
   function isMultipleChoice(q) {
-    return q.type !== "fill" && Array.isArray(q.options) && q.options.length > 0;
+    return q.type !== "fill" && !QuizEngine.isMultiPart(q) && Array.isArray(q.options) && q.options.length > 0;
   }
 
+  // Prepara o estado da pergunta atual: opções embaralhadas (mc), lista de "direitas" embaralhada
+  // (match) e um espaço vazio por linha nas perguntas de várias partes (match e multi).
   function prepareCurrentOptions() {
     var session = state.session;
     var item = session.queue[session.index];
-    if (item && isMultipleChoice(item.question)) {
-      session.optionsForCurrent = QuizEngine.shuffle(item.question.options);
-    } else {
-      session.optionsForCurrent = null;
+    var q = item && item.question;
+    session.optionsForCurrent = null;
+    session.parts = null;
+    session.lastParts = null;
+    if (!q) return;
+    if (q.type === "match") {
+      session.parts = q.pairs.map(function () { return ""; });
+      session.optionsForCurrent = QuizEngine.shuffle(q.pairs.map(function (pair) { return pair.right; }));
+    } else if (q.type === "multi") {
+      session.parts = q.blanks.map(function () { return ""; });
+    } else if (isMultipleChoice(q)) {
+      session.optionsForCurrent = QuizEngine.shuffle(q.options);
     }
+  }
+
+  // Só libera o botão "Verificar" quando há algo respondido (nas de várias partes, todas as linhas).
+  function canSubmit(q, session) {
+    if (QuizEngine.isMultiPart(q)) {
+      return session.parts.every(function (part) {
+        return String(part).trim() !== "";
+      });
+    }
+    return q.type === "fill" ? !!session.inputValue.trim() : !!session.selected;
   }
 
   function checkCurrentAnswer() {
     var session = state.session;
     var item = session.queue[session.index];
     var q = item.question;
-    var userAnswer = q.type === "fill" ? session.inputValue.trim() : session.selected;
-    if (!userAnswer) return;
+    if (!canSubmit(q, session)) return;
+    var userAnswer = QuizEngine.isMultiPart(q)
+      ? session.parts.slice()
+      : q.type === "fill" ? session.inputValue.trim() : session.selected;
     var result = QuizEngine.checkAnswer(q, userAnswer);
     session.answered = true;
     session.lastCorrect = result.correct;
+    session.lastParts = result.parts || null;
     session.lastUserAnswer = userAnswer;
     session.results.push({ topic: q.topic, correct: result.correct });
     ProgressStore.recordAnswer(state.activeAulaId, q.topic, result.correct);
@@ -211,6 +236,71 @@
     renderQuestion(aula, session);
   }
 
+  // Perguntas de várias partes (match e multi): cada linha ganha a cor de acerto/erro depois de
+  // corrigida e, se errou, mostra a resposta esperada logo abaixo.
+  function partClass(session, i) {
+    if (!session.answered || !session.lastParts) {
+      return "border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100";
+    }
+    return session.lastParts[i]
+      ? "border-emerald-400 bg-emerald-50 text-emerald-800"
+      : "border-rose-400 bg-rose-50 text-rose-800";
+  }
+
+  function partExpectedHtml(session, i, expected) {
+    if (!session.answered || !session.lastParts || session.lastParts[i]) return "";
+    return '<span class="w-full text-xs text-rose-800">Resposta esperada: <span class="font-medium">' + escapeHtml(expected) + "</span></span>";
+  }
+
+  // "match": uma linha por par, com um menu para escolher a metade que combina.
+  function renderMatchArea(q, session) {
+    return (
+      '<div class="divide-y divide-slate-100">' +
+      q.pairs
+        .map(function (pair, i) {
+          var options =
+            '<option value="">Escolha…</option>' +
+            session.optionsForCurrent
+              .map(function (opt) {
+                return '<option value="' + escapeHtml(opt) + '"' + (opt === session.parts[i] ? " selected" : "") + ">" + escapeHtml(opt) + "</option>";
+              })
+              .join("");
+          return (
+            '<div class="flex flex-wrap items-center gap-x-3 gap-y-1 py-2">' +
+            '<span class="w-full text-sm font-medium text-slate-800 sm:w-2/5">' + escapeHtml(pair.left) + "</span>" +
+            '<select data-idx="' + i + '" ' + (session.answered ? "disabled" : "") +
+            ' class="answer-input match-select min-w-0 flex-1 rounded-lg border px-3 py-2 text-sm ' + partClass(session, i) + '">' +
+            options + "</select>" +
+            partExpectedHtml(session, i, pair.right) +
+            "</div>"
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
+  // "multi": uma lacuna por linha (tabela de formas verbais, diálogo com lacunas numeradas...).
+  function renderMultiArea(q, session) {
+    return (
+      '<div class="divide-y divide-slate-100">' +
+      q.blanks
+        .map(function (blank, i) {
+          return (
+            '<div class="flex flex-wrap items-center gap-x-3 gap-y-1 py-2">' +
+            '<span class="w-full text-sm font-medium text-slate-800 sm:w-2/5">' + escapeHtml(blank.label) + "</span>" +
+            '<input type="text" autocomplete="off" data-idx="' + i + '" ' + (session.answered ? "disabled" : "") +
+            ' class="answer-input multi-input min-w-0 flex-1 rounded-lg border px-3 py-2 text-sm ' + partClass(session, i) + '" ' +
+            'placeholder="Digite..." value="' + escapeHtml(session.parts[i]) + '" />' +
+            partExpectedHtml(session, i, blank.accept[0]) +
+            "</div>"
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
   function renderQuestion(aula, session) {
     var item = session.queue[session.index];
     var q = item.question;
@@ -226,7 +316,11 @@
 
     var mcQuestion = isMultipleChoice(q);
     var answerAreaHtml = "";
-    if (mcQuestion) {
+    if (q.type === "match") {
+      answerAreaHtml = renderMatchArea(q, session);
+    } else if (q.type === "multi") {
+      answerAreaHtml = renderMultiArea(q, session);
+    } else if (mcQuestion) {
       answerAreaHtml = session.optionsForCurrent
         .map(function (opt) {
           var stateCls = "border border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50";
@@ -273,7 +367,7 @@
       ? '<button id="next-btn" class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">' +
         (session.index + 1 >= session.queue.length ? "Ver resultado 🏁" : "Próxima →") + "</button>"
       : '<button id="check-btn" class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40" ' +
-        ((q.type === "fill" ? !session.inputValue.trim() : !session.selected) ? "disabled" : "") +
+        (canSubmit(q, session) ? "" : "disabled") +
         ">Verificar resposta</button>";
 
     el("quiz-panel").innerHTML =
@@ -285,7 +379,7 @@
       '<div class="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">' +
       '<div class="h-full rounded-full bg-indigo-500 transition-all" style="width:' + pct + '%"></div></div>' +
       passageHtml +
-      '<p class="mb-4 text-base font-medium text-slate-900">' + escapeHtml(q.prompt) + "</p>" +
+      '<p class="mb-4 whitespace-pre-line text-base font-medium text-slate-900">' + escapeHtml(q.prompt) + "</p>" +
       '<div id="answer-area">' + answerAreaHtml + "</div>" +
       feedbackHtml +
       '<div class="mt-5 flex justify-end">' + footerBtn + "</div>" +
@@ -309,6 +403,29 @@
         if (evt.key === "Enter" && session.inputValue.trim()) checkCurrentAnswer();
       });
       input.focus();
+    }
+    if (q.type === "match" && !session.answered) {
+      Array.prototype.forEach.call(el("quiz-panel").querySelectorAll(".match-select"), function (sel) {
+        sel.addEventListener("change", function () {
+          session.parts[Number(sel.getAttribute("data-idx"))] = sel.value;
+          el("quiz-panel").querySelector("#check-btn").disabled = !canSubmit(q, session);
+        });
+      });
+    }
+    if (q.type === "multi" && !session.answered) {
+      var multiInputs = el("quiz-panel").querySelectorAll(".multi-input");
+      Array.prototype.forEach.call(multiInputs, function (inp, i) {
+        inp.addEventListener("input", function () {
+          session.parts[i] = inp.value;
+          el("quiz-panel").querySelector("#check-btn").disabled = !canSubmit(q, session);
+        });
+        inp.addEventListener("keydown", function (evt) {
+          if (evt.key !== "Enter") return;
+          if (canSubmit(q, session)) checkCurrentAnswer();
+          else if (multiInputs[i + 1]) multiInputs[i + 1].focus();
+        });
+      });
+      if (multiInputs[0]) multiInputs[0].focus();
     }
     if (session.answered) {
       el("next-btn").addEventListener("click", nextQuestion);

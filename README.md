@@ -14,8 +14,11 @@ Em outros navegadores o quiz funciona normal, só essa checagem automática de p
 ## O que cada aba tem
 
 - Um card de teoria/dicas (📖) com explicação em português, frases de exemplo do dia a dia e dicas.
-- Um banco de exercícios variados (múltipla escolha e preencher lacuna, e leitura com perguntas na
-  Aula 3), em ordem embaralhada a cada tentativa.
+- Um banco de exercícios variados (múltipla escolha, preencher lacuna, ligar colunas e várias
+  lacunas numa questão — tabelas e diálogos —, mais leitura com perguntas), em ordem embaralhada a
+  cada tentativa. Ligar colunas (`type: "match"`, com `pairs: [{ left, right }]`) e várias lacunas
+  (`type: "multi"`, com `blanks: [{ label, accept }]`) só contam como certas se todas as linhas
+  estiverem certas; depois de corrigir, cada linha mostra se acertou e a resposta esperada.
 - Feedback imediato depois de cada resposta, explicando por que está certa ou errada.
 - Um resumo no final com pontuação, temas que você errou e sugestões reais de vídeo/exercício por tema.
 - Um painel de desempenho histórico por tema (fica salvo no navegador, mesmo depois de fechar).

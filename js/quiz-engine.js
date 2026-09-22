@@ -56,8 +56,31 @@
       .replace(/\s*[.!?]+$/, "");
   }
 
+  // Perguntas de várias partes têm uma resposta por linha (array), e só contam como certas se
+  // TODAS as partes estiverem certas:
+  //   "match" — ligar colunas: pairs [{ left, right }]; a resposta é o "right" escolhido em cada linha.
+  //   "multi" — várias lacunas na mesma questão: blanks [{ label, accept: [...] }].
+  function isMultiPart(question) {
+    return question.type === "match" || question.type === "multi";
+  }
+
   // Retorna { correct: boolean } para uma pergunta de múltipla escolha ou de preencher.
+  // Nas de várias partes retorna também { parts: [boolean, ...] }, um resultado por linha.
   function checkAnswer(question, userAnswer) {
+    if (question.type === "match") {
+      var given = Array.isArray(userAnswer) ? userAnswer : [];
+      var matchParts = (question.pairs || []).map(function (pair, i) {
+        return given[i] === pair.right;
+      });
+      return { correct: matchParts.every(Boolean), parts: matchParts };
+    }
+    if (question.type === "multi") {
+      var typed = Array.isArray(userAnswer) ? userAnswer : [];
+      var multiParts = (question.blanks || []).map(function (blank, i) {
+        return (blank.accept || []).map(normalize).indexOf(normalize(typed[i])) !== -1;
+      });
+      return { correct: multiParts.every(Boolean), parts: multiParts };
+    }
     if (question.type === "mc" || !question.type) {
       return { correct: userAnswer === question.answer };
     }
@@ -70,6 +93,7 @@
     ROUND: ROUND,
     shuffle: shuffle,
     buildPlayQueue: buildPlayQueue,
+    isMultiPart: isMultiPart,
     checkAnswer: checkAnswer
   };
 })();

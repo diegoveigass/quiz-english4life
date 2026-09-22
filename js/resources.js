@@ -48,6 +48,15 @@
         { title: "A/an, plurals: singular and plural forms — Test-English", url: "https://test-english.com/grammar-points/a1/a-an-plurals/", type: "exercício" },
         { title: "Articles: 'a', 'an', 'the' — British Council LearnEnglish", url: "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2-grammar/articles-a-an-the", type: "leitura" }
       ]
+    },
+    // Sites indicados pelo professor na pasta da aula 5 (websites.txt), todos verificados no ar.
+    "vocabulary": {
+      label: "Vocabulário do dia a dia (rotina e imprevistos)",
+      links: [
+        { title: "English vocabulary — temas ilustrados com áudio e exercícios (LanguageGuide)", url: "https://www.languageguide.org/english/vocabulary/", type: "exercício" },
+        { title: "LingoClip — aprenda inglês com videoclipes e letras de músicas", url: "https://lingoclip.app/en", type: "vídeo" },
+        { title: "News in Levels — notícias em 3 níveis, com áudio", url: "https://www.newsinlevels.com/", type: "leitura" }
+      ]
     }
   };
 
@@ -80,7 +89,16 @@
     "verb-preposition": "verbs-prepositions",
     "irregular-plurals": "grammar-details",
     "musical-instruments": "grammar-details",
-    "do-does-vs-be": "simple-vs-continuous"
+    "do-does-vs-be": "simple-vs-continuous",
+    "have-collocations": "vocabulary",
+    "sleep-vocabulary": "vocabulary",
+    "home-routine-vocab": "vocabulary",
+    "work-evening-vocab": "vocabulary",
+    "machine-problems": "vocabulary",
+    "accident-vocab": "vocabulary",
+    "irregular-past": "vocabulary",
+    "leave-vs-forget": "vocabulary",
+    "vocab-in-context": "vocabulary"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -112,6 +130,15 @@
     "verb-preposition": "Verbo + preposição (listen to, go home)",
     "irregular-plurals": "Plural irregular (child → children)",
     "musical-instruments": "Instrumentos musicais + \"the\"",
-    "do-does-vs-be": "Do/Does (auxiliar sem significado) x verbo to be (com significado)"
+    "do-does-vs-be": "Do/Does (auxiliar sem significado) x verbo to be (com significado)",
+    "have-collocations": "Have + substantivo (have a shower, have a nap…)",
+    "sleep-vocabulary": "Sono e manhã (oversleep, lie-in, nap…)",
+    "home-routine-vocab": "Casa, comida e limpeza (on my own, washing-up…)",
+    "work-evening-vocab": "Trabalho e noite (get to work, stay in, come round…)",
+    "machine-problems": "Aparelho com defeito (something wrong with, out of order)",
+    "accident-vocab": "Imprevistos (spill, burn, run out of, miss the bus…)",
+    "irregular-past": "Passado e particípio irregulares (break, lose, leave…)",
+    "leave-vs-forget": "Leave x forget (deixar x esquecer)",
+    "vocab-in-context": "Vocabulário no texto (leitura)"
   };
 })();
