@@ -157,7 +157,12 @@
     if (!q) return;
     if (q.type === "match") {
       session.parts = q.pairs.map(function () { return ""; });
-      session.optionsForCurrent = QuizEngine.shuffle(q.pairs.map(function (pair) { return pair.right; }));
+      // Sem repetição no menu: assim o mesmo "right" pode valer para várias linhas, o que permite
+      // exercícios de classificar (ex.: escolher "on" ou "in" para cada transporte).
+      var rights = q.pairs.map(function (pair) { return pair.right; }).filter(function (r, i, all) {
+        return all.indexOf(r) === i;
+      });
+      session.optionsForCurrent = QuizEngine.shuffle(rights);
     } else if (q.type === "multi") {
       session.parts = q.blanks.map(function () { return ""; });
     } else if (isMultipleChoice(q)) {

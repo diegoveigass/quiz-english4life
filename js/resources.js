@@ -98,7 +98,10 @@
     "accident-vocab": "vocabulary",
     "irregular-past": "vocabulary",
     "leave-vs-forget": "vocabulary",
-    "vocab-in-context": "vocabulary"
+    "vocab-in-context": "vocabulary",
+    "translation-traps": "vocabulary",
+    "frequency-scale": "vocabulary",
+    "vocab-prepositions": "vocabulary"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -139,6 +142,9 @@
     "accident-vocab": "Imprevistos (spill, burn, run out of, miss the bus…)",
     "irregular-past": "Passado e particípio irregulares (break, lose, leave…)",
     "leave-vs-forget": "Leave x forget (deixar x esquecer)",
-    "vocab-in-context": "Vocabulário no texto (leitura)"
+    "vocab-in-context": "Vocabulário no texto (leitura)",
+    "translation-traps": "Armadilhas de tradução EN → PT (come round, realise, lesson…)",
+    "frequency-scale": "Escala de frequência (always → hardly ever → never)",
+    "vocab-prepositions": "Preposições certas (on the bus, spill on, wrong with)"
   };
 })();

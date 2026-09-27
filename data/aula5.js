@@ -5,6 +5,15 @@
 // of, missed the bus, left x forgot) e nos sites de apoio indicados (languageguide.org,
 // lingoclip.app, newsinlevels.com).
 // Frases e textos originais, inspirados no material, não copiados dos documentos.
+//
+// 2º lote (depois que os PDFs voltaram com as respostas do Diego): mira nos erros reais da tarefa —
+// "have to feed" listado como have + substantivo (48.1); need/stay home/quiet/rest/buy no diálogo
+// (48.3: bother, stay in, early night, lie-in, come round); armadilhas de tradução EN→PT (48.4:
+// "this morning" ≠ essa semana, "come round" ≠ dar uma volta, did you get → passado, lesson ≠
+// tarefa); "burnet" (52.1); "in your legs", "a something wrong", "tripped and fall", "in the bus",
+// "had run out" (52.3/52.4) e "hardly never" (52.5) — e as 3 ligações trocadas do 52.2.
+// Formatos novos: classificar (match com categorias repetidas), tradução com armadilha, corrigir a
+// frase digitando, melhor resposta para uma pergunta, mais 2 tabelas, 1 diálogo e 2 textos.
 (function () {
   window.QUIZ_AULAS = window.QUIZ_AULAS || [];
 
@@ -45,7 +54,12 @@
         "Noite: stay in (ficar em casa) x go out (sair para se divertir); come round (visitar alguém na casa da pessoa); have friends for dinner (convidar amigos para jantar em casa); play cards (jogar baralho).",
         "Aparelho com defeito: There's something wrong with the TV. / The light isn't working (não funciona). / The shower isn't working properly (funciona, mas mal). / The phone is out of order (fora de serviço — comum em máquinas e telefones públicos).",
         "Pequenos acidentes: drop (deixar cair) → dropped; spill (derramar) → spilt ou spilled; burn (queimar) → burnt ou burned; break (quebrar) → broke → broken; trip over (tropeçar em) → tripped; lose (perder algo) → lost; ruin (estragar); a stain (mancha); run out of (acabar) → ran / run. Miss the bus = perder o ônibus (chegar tarde); lose = perder um objeto.",
-        "leave x forget: quando você diz ONDE a coisa ficou, usa-se leave — I left my bag on the bus. Forget vem sozinho ou com to + verbo: I forgot my bag. / I forgot to call you."
+        "leave x forget: quando você diz ONDE a coisa ficou, usa-se leave — I left my bag on the bus. Forget vem sozinho ou com to + verbo: I forgot my bag. / I forgot to call you.",
+        "have + substantivo x have to + verbo: have a nap / a shave / a wash / a rest são expressões fixas (substantivo depois); have to feed the cat é obrigação (ter que + verbo). Não confunda as duas estruturas.",
+        "Armadilhas de tradução EN → PT: come round = passar na casa de alguém (não \"dar uma volta\"); this morning = hoje de manhã (não \"essa semana\"); lesson = aula (tarefa é homework); realise = perceber, se dar conta (não \"realizar\"); stay in = ficar em casa; did you get… = passado (\"chegou\"), não presente.",
+        "hardly ever = quase nunca. \"Hardly\" já é negativo, então nunca junte com never: \"hardly never\" não existe. Escala: always > often > occasionally > hardly ever > never.",
+        "Preposições: on the bus / train / plane / metro, mas in the car / in a taxi; spill (spilt) algo ON uma superfície ou roupa; there's something wrong WITH the TV — e sem \"a\" antes de something.",
+        "I'd rather + verbo SEM \"to\": I'd rather stay in tonight. Passado com duas ações: He tripped and fell (fall → fell → fallen). Burn → burnt (ou burned), nunca \"burnet\". Com situação de agora, use have run out: The batteries have run out."
       ]
     },
 
@@ -1055,6 +1069,642 @@
           { label: "(5)", accept: ["wrong"] }
         ],
         explanation: "missed the bus (perdeu o ônibus); wasn't working (não estava funcionando); spilt my coffee (derramou o café — spilled também vale); has run out (a bateria acabou — com \"has\" usa-se o particípio: run); something wrong with… (algo errado com…)."
+      },
+
+      // =====================================================================================
+      // 2º LOTE — mira nos erros reais da tarefa (PDFs com as respostas do Diego)
+      // =====================================================================================
+
+      // ---------- have + substantivo x have to + verbo (48.1: "have to feed") ----------
+      {
+        id: "a5-mc-55",
+        type: "mc",
+        topic: "have-collocations",
+        prompt: "Qual frase usa \"have\" + SUBSTANTIVO (expressão fixa), e não \"have to\" + verbo?",
+        options: [
+          "I usually have a nap after lunch.",
+          "I have to feed the cat before work.",
+          "I have to wake up at six."
+        ],
+        answer: "I usually have a nap after lunch.",
+        explanation: "\"Have a nap\" = tirar uma soneca: have + substantivo (a nap). Já \"have to feed\" e \"have to wake up\" são have to + VERBO = ter que fazer algo (obrigação). São estruturas diferentes: have a shave / a wash / a rest entram no primeiro grupo; have to feed, não."
+      },
+      {
+        id: "a5-mc-56",
+        type: "mc",
+        topic: "have-collocations",
+        prompt: "Como se diz: \"Eu preciso alimentar o gato antes de sair.\"",
+        options: [
+          "I have to feed the cat before I leave.",
+          "I have feed the cat before I leave.",
+          "I have a feed the cat before I leave."
+        ],
+        answer: "I have to feed the cat before I leave.",
+        explanation: "Obrigação = have to + verbo na forma base: I have to feed. Sem o \"to\" (I have feed) ou com \"a\" (have a feed) a frase quebra."
+      },
+      {
+        id: "a5-fill-33",
+        type: "fill",
+        topic: "have-collocations",
+        prompt: "Complete: I always have ___ feed the dog before I leave for work.",
+        accept: ["to"],
+        explanation: "\"Have to\" + verbo = ter que (obrigação). É diferente de \"have + substantivo\" (have a nap, have a shower)."
+      },
+      {
+        id: "a5-match-6",
+        type: "match",
+        topic: "have-collocations",
+        prompt: "Classifique cada expressão: é have + substantivo (expressão fixa) ou have to + verbo (obrigação)?",
+        pairs: [
+          { left: "have a shave", right: "have + substantivo" },
+          { left: "have to feed the cats", right: "have to + verbo" },
+          { left: "have a wash", right: "have + substantivo" },
+          { left: "have to do the shopping", right: "have to + verbo" },
+          { left: "have a rest", right: "have + substantivo" },
+          { left: "have to leave home at eight", right: "have to + verbo" }
+        ],
+        explanation: "have a shave / a wash / a rest = have + SUBSTANTIVO (a shave, a wash, a rest). have to feed / do / leave = have to + VERBO (ter que fazer). Repare que dá para ter as duas estruturas na mesma rotina: I have a nap, but I also have to feed my cats."
+      },
+
+      // ---------- Diálogo do 48.3: bother, go out, stay in, early night, lie-in, come round ----------
+      {
+        id: "a5-mc-57",
+        type: "mc",
+        topic: "home-routine-vocab",
+        prompt: "Qual é a diferença entre \"I don't bother to cook\" e \"I don't need to cook\"?",
+        options: [
+          "Bother = não me dou ao trabalho (poderia, mas não faço esforço); need = não é necessário",
+          "São exatamente iguais",
+          "Bother = não sei cozinhar; need = não tenho fome"
+        ],
+        answer: "Bother = não me dou ao trabalho (poderia, mas não faço esforço); need = não é necessário",
+        explanation: "\"Don't bother to cook\" = eu poderia cozinhar, mas não me dou ao trabalho. \"Don't need to cook\" = não é preciso (alguém já cozinhou, por exemplo). No diálogo do livro a ideia é a primeira: \"Don't bother to cook a meal this evening.\""
+      },
+      {
+        id: "a5-mc-58",
+        type: "mc",
+        topic: "work-evening-vocab",
+        prompt: "We're bored at home. Why don't we ___ tonight? There's a new pizza place downtown.",
+        options: ["go out", "stay in", "come round"],
+        answer: "go out",
+        explanation: "\"Go out\" = sair de casa para se divertir (restaurante, cinema, balada). \"Stay in\" é o contrário (ficar em casa) e \"come round\" é visitar alguém na casa da pessoa."
+      },
+      {
+        id: "a5-mc-59",
+        type: "mc",
+        topic: "work-evening-vocab",
+        prompt: "I'm exhausted. I'd rather ___ tonight.",
+        options: ["stay in", "to stay in", "staying in"],
+        answer: "stay in",
+        explanation: "Depois de \"I'd rather\" vem o verbo na forma base, SEM \"to\": I'd rather stay in. \"Stay in\" = ficar em casa (\"stay home\" também se ouve, principalmente no inglês americano; o livro usa stay in)."
+      },
+      {
+        id: "a5-mc-60",
+        type: "mc",
+        topic: "sleep-vocabulary",
+        prompt: "On Saturdays I don't set an alarm — I have a ___ until nine or half past.",
+        options: ["lie-in", "rest", "nap"],
+        answer: "lie-in",
+        explanation: "\"Have a lie-in\" = ficar mais tempo na cama de manhã. \"A rest\" é descansar sem fazer nada e \"a nap\" é uma soneca curta — nenhum dos dois combina com \"until nine\"."
+      },
+      {
+        id: "a5-mc-61",
+        type: "mc",
+        topic: "sleep-vocabulary",
+        prompt: "Yesterday I had a late night, so tonight I'm going to bed at nine. I want to have ___.",
+        options: ["an early night", "a quiet night", "a short night"],
+        answer: "an early night",
+        explanation: "O oposto de \"a late night\" é \"an early night\" (ir dormir cedo). \"A quiet night\" seria uma noite tranquila, e \"a short night\" uma noite em que se dorme pouco."
+      },
+      {
+        id: "a5-mc-62",
+        type: "mc",
+        topic: "work-evening-vocab",
+        prompt: "I'm not going out tonight, but you can come ___ if you want.",
+        options: ["round", "buy", "play"],
+        answer: "round",
+        explanation: "\"Come round\" = ir à casa de alguém para visitar. Não tem nada a ver com comprar (buy)."
+      },
+      {
+        id: "a5-fill-34",
+        type: "fill",
+        topic: "work-evening-vocab",
+        prompt: "Complete: Come ___ tomorrow — I'll cook pasta for both of us.",
+        accept: ["round", "around", "over"],
+        explanation: "\"Come round\" (mais britânico), \"come around\" ou \"come over\" (mais americano) = passar na casa de alguém. O livro usa come round."
+      },
+      {
+        id: "a5-multi-7",
+        type: "multi",
+        topic: "work-evening-vocab",
+        prompt:
+          "Complete o diálogo com as palavras do quadro (uma para cada lacuna):\n" +
+          "bother · out · early · round · lie-in · ages\n\n" +
+          "Kim: Do you want to go (1) ___ tonight? There's a new cinema in the mall.\n" +
+          "Lou: I can't. I only slept four hours last night, so I want an (2) ___ night.\n" +
+          "Kim: No problem. Why don't you come (3) ___ tomorrow instead? I'll make lunch.\n" +
+          "Lou: Sounds great! Tomorrow is Saturday, so I can have a (4) ___ first.\n" +
+          "Kim: Perfect. I'll make something easy — I never (5) ___ to cook anything complicated.\n" +
+          "Lou: Good! Last time I waited (6) ___ for my food at that restaurant!",
+        blanks: [
+          { label: "(1)", accept: ["out"] },
+          { label: "(2)", accept: ["early"] },
+          { label: "(3)", accept: ["round"] },
+          { label: "(4)", accept: ["lie-in"] },
+          { label: "(5)", accept: ["bother"] },
+          { label: "(6)", accept: ["ages"] }
+        ],
+        explanation: "go out (sair para se divertir); an early night (dormir cedo, o oposto de a late night); come round (passar na casa de alguém); have a lie-in (ficar na cama de manhã); never bother to cook (não se dar ao trabalho); wait ages (esperar uma eternidade)."
+      },
+
+      // ---------- Armadilhas de tradução EN → PT (48.4) ----------
+      {
+        id: "a5-mc-63",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"Do you want to come round on Saturday?\"",
+        options: [
+          "Você quer passar lá em casa no sábado?",
+          "Você quer dar uma volta no sábado?",
+          "Você quer voltar no sábado?"
+        ],
+        answer: "Você quer passar lá em casa no sábado?",
+        explanation: "\"Come round\" = visitar / aparecer na casa de alguém. Não é \"dar uma volta\" (isso seria go for a walk ou go for a drive)."
+      },
+      {
+        id: "a5-mc-64",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"I woke up late this morning.\"",
+        options: [
+          "Eu acordei tarde hoje de manhã.",
+          "Eu acordei tarde essa semana.",
+          "Eu acordei tarde ontem à noite."
+        ],
+        answer: "Eu acordei tarde hoje de manhã.",
+        explanation: "\"This morning\" = hoje de manhã (esta manhã). \"Essa semana\" seria \"this week\"."
+      },
+      {
+        id: "a5-mc-65",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"What time did you leave work yesterday?\"",
+        options: [
+          "Que horas você saiu do trabalho ontem?",
+          "Que horas você sai do trabalho?",
+          "Que horas você vai sair do trabalho amanhã?"
+        ],
+        answer: "Que horas você saiu do trabalho ontem?",
+        explanation: "\"Did\" + \"yesterday\" = passado (saiu). Cuidado para não traduzir \"did you leave\" como \"você sai\" (presente): o passado fica marcado no \"did\"."
+      },
+      {
+        id: "a5-mc-66",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"The lesson was really interesting.\"",
+        options: [
+          "A aula foi muito interessante.",
+          "A tarefa foi muito interessante.",
+          "A viagem foi muito interessante."
+        ],
+        answer: "A aula foi muito interessante.",
+        explanation: "\"Lesson\" = aula (ou lição). \"Tarefa / lição de casa\" é \"homework\"."
+      },
+      {
+        id: "a5-mc-67",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"He realised he had left his bag on the bus.\"",
+        options: [
+          "Ele percebeu que tinha deixado a bolsa no ônibus.",
+          "Ele realizou o sonho de deixar a bolsa no ônibus.",
+          "Ele decidiu deixar a bolsa no ônibus."
+        ],
+        answer: "Ele percebeu que tinha deixado a bolsa no ônibus.",
+        explanation: "\"Realise\" é um falso cognato: significa perceber, se dar conta — não \"realizar\" (fazer acontecer), que em inglês seria achieve ou carry out."
+      },
+      {
+        id: "a5-mc-68",
+        type: "mc",
+        topic: "translation-traps",
+        prompt: "Qual é a tradução de: \"I'm going to stay in tonight.\"",
+        options: [
+          "Vou ficar em casa hoje à noite.",
+          "Vou entrar hoje à noite.",
+          "Vou ficar por dentro hoje à noite."
+        ],
+        answer: "Vou ficar em casa hoje à noite.",
+        explanation: "\"Stay in\" = ficar em casa. O \"in\" aqui não é \"dentro/entrar\": o verbo com partícula (phrasal verb) muda o sentido — go out x stay in."
+      },
+
+      // ---------- Escala de frequência (52.5: "hardly never") ----------
+      {
+        id: "a5-mc-69",
+        type: "mc",
+        topic: "frequency-scale",
+        prompt: "Qual frase está correta?",
+        options: [
+          "I hardly ever drop things.",
+          "I hardly never drop things.",
+          "I hard ever drop things."
+        ],
+        answer: "I hardly ever drop things.",
+        explanation: "\"Hardly ever\" = quase nunca. \"Hardly\" já tem sentido negativo, então não se junta com \"never\": \"hardly never\" seria dupla negação e não é usado."
+      },
+      {
+        id: "a5-mc-70",
+        type: "mc",
+        topic: "frequency-scale",
+        prompt: "\"I hardly ever break things.\" O que isso quer dizer?",
+        options: [
+          "Quase nunca quebro coisas",
+          "Quebro coisas o tempo todo",
+          "Nunca quebrei nada na vida"
+        ],
+        answer: "Quase nunca quebro coisas",
+        explanation: "\"Hardly ever\" = quase nunca: acontece muito raramente, mas acontece. Não é o mesmo que \"never\" (nunca, zero vezes)."
+      },
+      {
+        id: "a5-mc-71",
+        type: "mc",
+        topic: "frequency-scale",
+        prompt: "Qual sequência vai do MAIS para o MENOS frequente?",
+        options: [
+          "always – often – occasionally – hardly ever – never",
+          "never – hardly ever – occasionally – often – always",
+          "often – always – never – occasionally – hardly ever"
+        ],
+        answer: "always – often – occasionally – hardly ever – never",
+        explanation: "Da maior para a menor frequência: always (sempre) > often (muitas vezes) > occasionally (de vez em quando) > hardly ever (quase nunca) > never (nunca)."
+      },
+      {
+        id: "a5-fill-35",
+        type: "fill",
+        topic: "frequency-scale",
+        prompt: "Complete (quase nunca): I'm careful with my phone, so I ___ ever drop it.",
+        accept: ["hardly", "rarely", "seldom", "scarcely"],
+        explanation: "\"Hardly ever\" = quase nunca (é a forma do livro). \"Rarely ever\", \"seldom ever\" e \"scarcely ever\" também valem. Só nunca \"hardly never\"."
+      },
+      {
+        id: "a5-fill-36",
+        type: "fill",
+        topic: "frequency-scale",
+        prompt: "Reescreva com \"hardly ever\": \"I lose my keys.\"",
+        accept: ["i hardly ever lose my keys", "i hardly ever lose my keys."],
+        explanation: "O advérbio de frequência vem antes do verbo principal: I hardly ever lose my keys."
+      },
+      {
+        id: "a5-match-7",
+        type: "match",
+        topic: "frequency-scale",
+        prompt: "Ligue cada advérbio de frequência ao significado:",
+        pairs: [
+          { left: "always", right: "sempre" },
+          { left: "often", right: "muitas vezes" },
+          { left: "occasionally", right: "de vez em quando" },
+          { left: "hardly ever", right: "quase nunca" },
+          { left: "never", right: "nunca" }
+        ],
+        explanation: "always = sempre; often = muitas vezes; occasionally = de vez em quando; hardly ever = quase nunca; never = nunca. \"Hardly ever\" e \"never\" são vizinhos na escala, mas não iguais — e nunca se juntam (\"hardly never\" não existe)."
+      },
+
+      // ---------- Detalhes do passado (52.1 "burnet", 52.4 "tripped and fall", "had run out") ----------
+      {
+        id: "a5-mc-72",
+        type: "mc",
+        topic: "irregular-past",
+        prompt: "Qual é a grafia certa do particípio de \"burn\" (forma em -t)?",
+        options: ["burnt", "burnet", "burnd"],
+        answer: "burnt",
+        explanation: "Burn → burnt (ou burned), nas duas formas: passado e particípio. \"Burnet\" não é forma do verbo."
+      },
+      {
+        id: "a5-mc-73",
+        type: "mc",
+        topic: "irregular-past",
+        prompt: "Qual frase está correta?",
+        options: [
+          "He tripped and fell in the street.",
+          "He tripped and fall in the street.",
+          "He tripped and falled in the street."
+        ],
+        answer: "He tripped and fell in the street.",
+        explanation: "As duas ações estão no passado: tripped e fell. Fall é irregular (fall → fell → fallen), e \"falled\" não existe. Quando \"and\" liga dois verbos no passado, os dois vão no passado."
+      },
+      {
+        id: "a5-mc-74",
+        type: "mc",
+        topic: "irregular-past",
+        prompt: "Qual é o passado e o particípio de \"fall\"?",
+        options: ["fell / fallen", "fall / fell", "falled / fallen"],
+        answer: "fell / fallen",
+        explanation: "Fall → fell (passado) → fallen (particípio). Ex.: She fell down the stairs. / She has fallen."
+      },
+      {
+        id: "a5-fill-37",
+        type: "fill",
+        topic: "irregular-past",
+        prompt: "Complete com o passado de \"fall\": She tripped over a step and ___ down the stairs.",
+        accept: ["fell"],
+        explanation: "Passado de fall = fell (irregular). Tripped and fell: os dois verbos no passado."
+      },
+      {
+        id: "a5-fill-38",
+        type: "fill",
+        topic: "irregular-past",
+        prompt: "Complete com a forma em -t de \"burn\": The toast is completely ___ — I can't eat it.",
+        accept: ["burnt"],
+        explanation: "Aqui \"burnt\" funciona como adjetivo (queimado): burnt toast."
+      },
+      {
+        id: "a5-mc-75",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "The batteries ___ run out, so the radio doesn't work.",
+        options: ["have", "had", "are"],
+        answer: "have",
+        explanation: "A situação é de agora (o rádio não funciona agora), então usa-se o presente perfeito: the batteries have run out. \"Had run out\" (passado do passado) serve para contar uma história que já aconteceu, como o texto do Paul no livro."
+      },
+      {
+        id: "a5-multi-8",
+        type: "multi",
+        topic: "irregular-past",
+        prompt: "Complete a tabela: passado (past tense) e particípio (past participle) de cada verbo. No get, vale a forma britânica (got) ou a americana (gotten).",
+        blanks: [
+          { label: "get — past tense", accept: ["got"] },
+          { label: "get — past participle", accept: ["got", "gotten"] },
+          { label: "put — past tense", accept: ["put"] },
+          { label: "put — past participle", accept: ["put"] },
+          { label: "see — past tense", accept: ["saw"] },
+          { label: "see — past participle", accept: ["seen"] }
+        ],
+        explanation: "get → got → got (EUA: gotten); put → put → put (as três formas são iguais); see → saw → seen. Esses verbos aparecem na história do Paul: he got out his walkman, put his hand in his pocket, saw a dog."
+      },
+      {
+        id: "a5-multi-9",
+        type: "multi",
+        topic: "irregular-past",
+        prompt: "Complete a tabela: passado (past tense) e particípio (past participle) de cada verbo.",
+        blanks: [
+          { label: "tell — past tense", accept: ["told"] },
+          { label: "tell — past participle", accept: ["told"] },
+          { label: "wake — past tense", accept: ["woke"] },
+          { label: "wake — past participle", accept: ["woken"] },
+          { label: "sleep — past tense", accept: ["slept"] },
+          { label: "sleep — past participle", accept: ["slept"] }
+        ],
+        explanation: "tell → told → told (o motorista told him to get off); wake → woke → woken; sleep → slept → slept (o passado de oversleep segue esse padrão: overslept)."
+      },
+
+      // ---------- Preposições e artigos (on the bus; spill on; something wrong) ----------
+      {
+        id: "a5-mc-76",
+        type: "mc",
+        topic: "vocab-prepositions",
+        prompt: "I left my umbrella ___ the bus.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "Em transporte público onde a gente anda dentro (bus, train, plane, metro) usa-se ON: on the bus. Já carro e táxi usam IN: in the car, in a taxi."
+      },
+      {
+        id: "a5-match-8",
+        type: "match",
+        topic: "vocab-prepositions",
+        prompt: "Escolha a preposição certa (on ou in) para cada transporte:",
+        pairs: [
+          { left: "I left my bag ___ the bus.", right: "on" },
+          { left: "She fell asleep ___ a taxi.", right: "in" },
+          { left: "He read a book ___ the plane.", right: "on" },
+          { left: "We waited ___ my car.", right: "in" },
+          { left: "I met her ___ the train.", right: "on" },
+          { left: "They talked all the way ___ an Uber.", right: "in" }
+        ],
+        explanation: "Transporte público em que dá para ficar de pé e andar (bus, train, plane, metro) usa ON. Carro, táxi e Uber (carros pequenos) usam IN."
+      },
+      {
+        id: "a5-mc-77",
+        type: "mc",
+        topic: "vocab-prepositions",
+        prompt: "He spilt orange juice ___ his white shirt.",
+        options: ["on", "in", "at"],
+        answer: "on",
+        explanation: "Derramar algo SOBRE uma superfície ou roupa = spill … on. \"In\" daria a ideia de cair dentro de algo."
+      },
+      {
+        id: "a5-fill-39",
+        type: "fill",
+        topic: "vocab-prepositions",
+        prompt: "Complete: Careful! You're going to spill soup ___ the tablecloth.",
+        accept: ["on", "over"],
+        explanation: "Spill something on (ou over) uma superfície: spill soup on the tablecloth."
+      },
+      {
+        id: "a5-mc-78",
+        type: "mc",
+        topic: "machine-problems",
+        prompt: "Qual frase está ERRADA?",
+        options: [
+          "There's something wrong with the TV.",
+          "There's a something wrong with the TV.",
+          "Something is wrong with the TV."
+        ],
+        answer: "There's a something wrong with the TV.",
+        explanation: "\"Something\" já é o substantivo (alguma coisa), então não leva \"a\" antes: there's something wrong with…"
+      },
+      {
+        id: "a5-fill-40",
+        type: "fill",
+        topic: "machine-problems",
+        prompt: "Corrija o erro e reescreva a frase: \"There's a something wrong with the printer.\"",
+        accept: ["there's something wrong with the printer", "there is something wrong with the printer"],
+        explanation: "Tire o \"a\": there's something wrong with the printer."
+      },
+      {
+        id: "a5-mc-79",
+        type: "mc",
+        topic: "machine-problems",
+        prompt: "\"I can't get the printer to work.\" O que isso quer dizer?",
+        options: [
+          "Não consigo fazer a impressora funcionar",
+          "Não consigo levar a impressora para o trabalho",
+          "Não tenho impressora no trabalho"
+        ],
+        answer: "Não consigo fazer a impressora funcionar",
+        explanation: "\"Get something to work\" = conseguir fazer algo funcionar. Combina com o vocabulário de aparelho com defeito (something wrong with…, not working properly)."
+      },
+
+      // ---------- Causa e consequência (52.2: rádio, pilhas e ônibus trocados) ----------
+      {
+        id: "a5-match-9",
+        type: "match",
+        topic: "accident-vocab",
+        prompt: "Ligue cada situação à consequência que faz sentido:",
+        pairs: [
+          { left: "I dropped my laptop on the floor", right: "and now it won't turn on." },
+          { left: "The batteries in my headphones have run out,", right: "so I can't listen to music." },
+          { left: "I missed the last bus", right: "and had to walk home." },
+          { left: "I spilt tea on the sofa", right: "and it left a big stain." },
+          { left: "I forgot my keys,", right: "so I couldn't get into the house." },
+          { left: "I burnt my hand", right: "when I touched the hot pan." }
+        ],
+        explanation: "Pense na causa e no efeito: notebook derrubado → não liga; pilhas acabaram → não dá para ouvir música; perdeu o último ônibus → voltou a pé; chá derramado → mancha; esqueceu a chave → não entrou; queimou a mão → tocou na panela quente."
+      },
+      {
+        id: "a5-mc-80",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"I waited ages for the bus.\" O que isso quer dizer?",
+        options: [
+          "Esperei muito tempo pelo ônibus",
+          "Esperei pelo ônibus durante alguns anos",
+          "Esperei pouco pelo ônibus"
+        ],
+        answer: "Esperei muito tempo pelo ônibus",
+        explanation: "\"Ages\" (informal) = muito tempo, uma eternidade — não são literalmente anos. \"I waited ages\" ≈ esperei uma eternidade."
+      },
+
+      // ---------- Vocabulário das páginas ainda não treinado ----------
+      {
+        id: "a5-mc-81",
+        type: "mc",
+        topic: "sleep-vocabulary",
+        prompt: "After I wake up, I get ___ and have breakfast.",
+        options: ["dressed", "dress", "dressing"],
+        answer: "dressed",
+        explanation: "No livro, \"get up\" = sair da cama e se vestir. \"Get dressed\" = vestir-se (dressed é adjetivo, como \"asleep\": get dressed, fall asleep)."
+      },
+      {
+        id: "a5-mc-82",
+        type: "mc",
+        topic: "sleep-vocabulary",
+        prompt: "\"Sometimes I manage to fall asleep at 3 a.m.\" O que significa \"manage to\"?",
+        options: [
+          "conseguir (com algum esforço)",
+          "administrar / gerenciar",
+          "tentar sem sucesso"
+        ],
+        answer: "conseguir (com algum esforço)",
+        explanation: "\"Manage to + verbo\" = conseguir fazer algo, com algum esforço. Aqui não é \"gerenciar\"."
+      },
+      {
+        id: "a5-mc-83",
+        type: "mc",
+        topic: "work-evening-vocab",
+        prompt: "\"I get to work by 9 a.m.\" O que significa \"by 9 a.m.\"?",
+        options: ["até as 9h (no máximo)", "às 9h em ponto", "depois das 9h"],
+        answer: "até as 9h (no máximo)",
+        explanation: "\"By\" + horário = até aquela hora, no máximo. Chegar by 9 é chegar às 9h ou antes."
+      },
+      {
+        id: "a5-mc-84",
+        type: "mc",
+        topic: "home-routine-vocab",
+        prompt: "No inglês britânico, o que é \"a takeaway\"?",
+        options: [
+          "Comida para levar (ou o lugar que vende)",
+          "Uma sobremesa",
+          "Um cardápio"
+        ],
+        answer: "Comida para levar (ou o lugar que vende)",
+        explanation: "Takeaway = comida para viagem/entrega, ou o restaurante que a vende. No inglês americano se diz takeout."
+      },
+      {
+        id: "a5-mc-85",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"He tripped, but he carried on to school.\" O que significa \"carried on\"?",
+        options: ["continuou (seguiu em frente)", "carregou algo", "desistiu"],
+        answer: "continuou (seguiu em frente)",
+        explanation: "\"Carry on\" = continuar, seguir em frente, mesmo depois de um problema."
+      },
+      {
+        id: "a5-mc-86",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"He got to his feet.\" O que aconteceu?",
+        options: ["Ele se levantou", "Ele chegou a pé", "Ele machucou o pé"],
+        answer: "Ele se levantou",
+        explanation: "\"Get to your feet\" = ficar de pé, levantar-se (depois de cair, por exemplo)."
+      },
+      {
+        id: "a5-mc-87",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "No inglês britânico, \"a ten-pound note\" é...",
+        options: [
+          "uma nota (cédula) de dez libras",
+          "um bilhete escrito de dez libras",
+          "uma anotação sobre dez libras"
+        ],
+        answer: "uma nota (cédula) de dez libras",
+        explanation: "\"Note\" em dinheiro = cédula (banknote). Nos EUA se diz \"bill\"."
+      },
+      {
+        id: "a5-mc-88",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"He saw a dog, but not its lead.\" O que é \"lead\" aqui?",
+        options: [
+          "a guia / coleira do cachorro",
+          "o chumbo",
+          "a liderança"
+        ],
+        answer: "a guia / coleira do cachorro",
+        explanation: "No inglês britânico, lead = guia/coleira com que se leva o cachorro (nos EUA, leash). O mesmo \"lead\" também pode ser liderar ou chumbo, mas aqui não."
+      },
+
+      // ---------- Melhor resposta para a pergunta (formato do 52.4) ----------
+      {
+        id: "a5-mc-89",
+        type: "mc",
+        topic: "machine-problems",
+        prompt: "\"Why can't we watch TV?\" Qual é a melhor resposta?",
+        options: [
+          "Because there's something wrong with it.",
+          "Because I overslept.",
+          "Because I've missed the bus."
+        ],
+        answer: "Because there's something wrong with it.",
+        explanation: "Quando um aparelho não funciona, o vocabulário certo é \"there's something wrong with it\" (ou \"it isn't working\"). As outras respostas não explicam por que a TV não liga."
+      },
+      {
+        id: "a5-mc-90",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"How did you cut your knee like that?\" Qual é a melhor resposta?",
+        options: [
+          "I tripped over a toy and fell.",
+          "I have run out of it.",
+          "It isn't working properly."
+        ],
+        answer: "I tripped over a toy and fell.",
+        explanation: "Trip over + fall (tropeçar e cair) explica o machucado. \"Run out of\" é acabar, e \"not working properly\" é para aparelhos."
+      },
+      {
+        id: "a5-mc-91",
+        type: "mc",
+        topic: "leave-vs-forget",
+        prompt: "\"Where's your umbrella?\" Qual é a melhor resposta?",
+        options: [
+          "I left it on the train.",
+          "I forgot it on the train.",
+          "It's out of order."
+        ],
+        answer: "I left it on the train.",
+        explanation: "Com o lugar (on the train), o material recomenda leave: I left it on the train. \"Out of order\" é para máquinas."
+      },
+      {
+        id: "a5-mc-92",
+        type: "mc",
+        topic: "accident-vocab",
+        prompt: "\"Why are you in such a bad mood?\" Qual é a melhor resposta?",
+        options: [
+          "I overslept, missed the bus and lost my wallet.",
+          "I had an early night and a lie-in.",
+          "The lift is out of order, so I'm happy."
+        ],
+        answer: "I overslept, missed the bus and lost my wallet.",
+        explanation: "Três imprevistos seguidos explicam o mau humor. As outras respostas descrevem coisas boas (dormir bem) ou se contradizem (\"out of order\" e \"happy\")."
       }
     ],
 
@@ -1240,6 +1890,188 @@
             ],
             answer: "She has a snack",
             explanation: "\"During the week I don't bother to cook — I just have a snack.\" (bother = se dar ao trabalho)."
+          }
+        ]
+      },
+      {
+        id: "a5-passage-3",
+        title: "E-mail do Léo pro Duda: uma semana corrida",
+        text:
+          "Hi Duda, sorry I didn't reply earlier — it's been a crazy week! On Monday I had a very " +
+          "late night, so on Tuesday I overslept and had to skip breakfast. I got to work at 9:15, " +
+          "and my boss was already in a bad mood. Then the printer stopped working, and I spent ages " +
+          "trying to get it to work. In the end I gave up and called the IT guy: there was something " +
+          "wrong with the paper tray. On Wednesday I spilt coffee on my keyboard and one key broke. " +
+          "On Thursday I burnt my lunch in the microwave, and the whole office smelled terrible! " +
+          "Luckily, today is Friday, so tomorrow I'm going to have a lie-in and stay in all day. Do " +
+          "you want to come round on Sunday? I'll make a proper dinner, and I promise I won't burn " +
+          "anything. Léo",
+        questions: [
+          {
+            id: "a5-r-13",
+            type: "mc",
+            topic: "vocab-in-context",
+            prompt: "Why did Léo skip breakfast on Tuesday?",
+            options: [
+              "Because he overslept",
+              "Because he had a lie-in on purpose",
+              "Because the printer stopped working"
+            ],
+            answer: "Because he overslept",
+            explanation: "O texto diz \"on Tuesday I overslept and had to skip breakfast\" — dormiu além da hora e não teve tempo."
+          },
+          {
+            id: "a5-r-14",
+            type: "mc",
+            topic: "vocab-in-context",
+            prompt: "What time did Léo get to work on Tuesday?",
+            options: ["9:15", "9:00", "8:30"],
+            answer: "9:15",
+            explanation: "\"I got to work at 9:15\" — get to work = chegar ao trabalho."
+          },
+          {
+            id: "a5-r-15",
+            type: "mc",
+            topic: "machine-problems",
+            prompt: "What was wrong with the printer?",
+            options: [
+              "Something was wrong with the paper tray",
+              "It was out of order",
+              "It had run out of ink"
+            ],
+            answer: "Something was wrong with the paper tray",
+            explanation: "O texto diz \"there was something wrong with the paper tray\". Repare que \"something\" não leva \"a\" antes."
+          },
+          {
+            id: "a5-r-16",
+            type: "mc",
+            topic: "accident-vocab",
+            prompt: "What happened to Léo's keyboard on Wednesday?",
+            options: [
+              "He spilt coffee on it and a key broke",
+              "He dropped it and lost it",
+              "He burnt it in the microwave"
+            ],
+            answer: "He spilt coffee on it and a key broke",
+            explanation: "\"I spilt coffee on my keyboard and one key broke\". O que queimou (burnt) foi o almoço, na quinta."
+          },
+          {
+            id: "a5-r-17",
+            type: "mc",
+            topic: "sleep-vocabulary",
+            prompt: "What is Léo going to do tomorrow?",
+            options: [
+              "Have a lie-in and stay in all day",
+              "Go out with Duda",
+              "Have an early night at work"
+            ],
+            answer: "Have a lie-in and stay in all day",
+            explanation: "\"Tomorrow I'm going to have a lie-in and stay in all day\" — ficar na cama até mais tarde e ficar em casa o dia todo."
+          },
+          {
+            id: "a5-r-18",
+            type: "mc",
+            topic: "work-evening-vocab",
+            prompt: "In \"Do you want to come round on Sunday?\", what is Léo doing?",
+            options: [
+              "Inviting Duda to his house",
+              "Asking Duda to take a walk",
+              "Asking Duda to come back to work"
+            ],
+            answer: "Inviting Duda to his house",
+            explanation: "\"Come round\" = visitar alguém na casa da pessoa. Léo ainda diz que vai fazer o jantar (\"I'll make a proper dinner\")."
+          }
+        ]
+      },
+      {
+        id: "a5-passage-4",
+        title: "No balcão da assistência técnica (diálogo)",
+        text:
+          "Clerk: Good morning. How can I help you?\n" +
+          "Customer: Hi. There's something wrong with my phone. It isn't working properly — the " +
+          "screen keeps going black.\n" +
+          "Clerk: Did you drop it?\n" +
+          "Customer: Yes, I dropped it in the street last week, but it worked fine at first. And " +
+          "yesterday I spilt a bit of water on it, too.\n" +
+          "Clerk: I see. Please leave it with us, and we'll call you in two days.\n" +
+          "Customer: Two days? Can't you look at it now? I nearly missed the bus to get here!\n" +
+          "Clerk: I'm afraid the workshop is closed today, and the machine that tests the screens " +
+          "is out of order.\n" +
+          "Customer: Oh no. OK, I'll leave it here. Please call me on my work number.",
+        questions: [
+          {
+            id: "a5-r-19",
+            type: "mc",
+            topic: "machine-problems",
+            prompt: "What is wrong with the customer's phone?",
+            options: [
+              "It isn't working properly: the screen keeps going black",
+              "It has run out of battery",
+              "It was left on the bus"
+            ],
+            answer: "It isn't working properly: the screen keeps going black",
+            explanation: "\"It isn't working properly — the screen keeps going black\": funciona, mas mal."
+          },
+          {
+            id: "a5-r-20",
+            type: "mc",
+            topic: "accident-vocab",
+            prompt: "What did the customer do to the phone last week?",
+            options: [
+              "Dropped it in the street",
+              "Spilt water on it",
+              "Burnt it"
+            ],
+            answer: "Dropped it in the street",
+            explanation: "\"I dropped it in the street last week\". A água (spilt) foi ontem."
+          },
+          {
+            id: "a5-r-21",
+            type: "mc",
+            topic: "accident-vocab",
+            prompt: "What happened to the phone yesterday?",
+            options: [
+              "The customer spilt a bit of water on it",
+              "The customer lost it",
+              "The customer tripped over it"
+            ],
+            answer: "The customer spilt a bit of water on it",
+            explanation: "\"Yesterday I spilt a bit of water on it, too\" — repare no \"on it\": spill something ON."
+          },
+          {
+            id: "a5-r-22",
+            type: "mc",
+            topic: "machine-problems",
+            prompt: "Why can't the clerk look at the phone now?",
+            options: [
+              "The workshop is closed and the testing machine is out of order",
+              "The clerk is in a bad mood",
+              "The phone has run out of order"
+            ],
+            answer: "The workshop is closed and the testing machine is out of order",
+            explanation: "\"The workshop is closed today, and the machine that tests the screens is out of order.\" (Out of order = fora de serviço; nunca \"run out of order\".)"
+          },
+          {
+            id: "a5-r-23",
+            type: "mc",
+            topic: "machine-problems",
+            prompt: "\"The machine is out of order.\" What does \"out of order\" mean?",
+            options: [
+              "fora de serviço (não funciona)",
+              "fora de ordem alfabética",
+              "muito barata"
+            ],
+            answer: "fora de serviço (não funciona)",
+            explanation: "\"Out of order\" = fora de serviço, muito usado para máquinas e equipamentos públicos."
+          },
+          {
+            id: "a5-r-24",
+            type: "mc",
+            topic: "vocab-in-context",
+            prompt: "When will the shop call the customer?",
+            options: ["In two days", "Today", "Next month"],
+            answer: "In two days",
+            explanation: "\"We'll call you in two days\" — \"in two days\" = daqui a dois dias."
           }
         ]
       }
