@@ -57,6 +57,15 @@
         { title: "LingoClip — aprenda inglês com videoclipes e letras de músicas", url: "https://lingoclip.app/en", type: "vídeo" },
         { title: "News in Levels — notícias em 3 níveis, com áudio", url: "https://www.newsinlevels.com/", type: "leitura" }
       ]
+    },
+    // Aula 6 (Air Travel): links verificados no ar em 29/09/2026.
+    "air-travel": {
+      label: "Inglês no aeroporto (pedidos, instruções e vocabulário de viagem)",
+      links: [
+        { title: "Airport English: Conversation Lesson (Espresso English)", url: "https://www.espressoenglish.net/travel-english-conversations-in-the-airport/", type: "leitura" },
+        { title: "Can, could and would for requests and permission — exercícios (British Council LearnEnglish Teens)", url: "https://learnenglishteens.britishcouncil.org/grammar/b1-b2-grammar/can-could-would-invitations-offers-requests-permission", type: "exercício" },
+        { title: "An airport notice — leitura A2 com exercícios (British Council LearnEnglish)", url: "https://learnenglish.britishcouncil.org/free-resources/reading/a2/airport-notice", type: "leitura" }
+      ]
     }
   };
 
@@ -101,7 +110,17 @@
     "vocab-in-context": "vocabulary",
     "translation-traps": "vocabulary",
     "frequency-scale": "vocabulary",
-    "vocab-prepositions": "vocabulary"
+    "vocab-prepositions": "vocabulary",
+    "air-travel-vocab": "air-travel",
+    "question-vs-request": "air-travel",
+    "polite-requests": "air-travel",
+    "responding-requests": "air-travel",
+    "instructions-announcements": "air-travel",
+    "intonation": "air-travel",
+    "airport-phrasal-verbs": "air-travel",
+    "arrival-vocab": "air-travel",
+    "missing-word": "air-travel",
+    "airport-sequence": "air-travel"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -145,6 +164,16 @@
     "vocab-in-context": "Vocabulário no texto (leitura)",
     "translation-traps": "Armadilhas de tradução EN → PT (come round, realise, lesson…)",
     "frequency-scale": "Escala de frequência (always → hardly ever → never)",
-    "vocab-prepositions": "Preposições certas (on the bus, spill on, wrong with)"
+    "vocab-prepositions": "Preposições certas (on the bus, spill on, wrong with)",
+    "air-travel-vocab": "Vocabulário de aeroporto (scales, aisle seat, boarding pass…)",
+    "question-vs-request": "Pergunta x pedido (informação x ação)",
+    "polite-requests": "Pedidos educados (may / can / could)",
+    "responding-requests": "Responder a pedidos (Here you are, Sure, pedir repetição)",
+    "instructions-announcements": "Instruções x anúncios",
+    "intonation": "Entonação (sobe nas sim/não, desce nas wh-)",
+    "airport-phrasal-verbs": "Expressões de aeroporto (take off, step this way, about to, shortly)",
+    "arrival-vocab": "Chegada (Immigration, Baggage Reclaim, Customs)",
+    "missing-word": "Palavra que falta na frase",
+    "airport-sequence": "Ordem das etapas da viagem"
   };
 })();
