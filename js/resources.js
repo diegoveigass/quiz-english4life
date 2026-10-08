@@ -120,7 +120,11 @@
     "airport-phrasal-verbs": "air-travel",
     "arrival-vocab": "air-travel",
     "missing-word": "air-travel",
-    "airport-sequence": "air-travel"
+    "airport-sequence": "air-travel",
+    "checkin-questions": "air-travel",
+    "airport-vocab": "air-travel",
+    "question-answer-match": "air-travel",
+    "present-continuous-questions": "continuous"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -174,6 +178,10 @@
     "airport-phrasal-verbs": "Expressões de aeroporto (take off, step this way, about to, shortly)",
     "arrival-vocab": "Chegada (Immigration, Baggage Reclaim, Customs)",
     "missing-word": "Palavra que falta na frase",
-    "airport-sequence": "Ordem das etapas da viagem"
+    "airport-sequence": "Ordem das etapas da viagem",
+    "checkin-questions": "Perguntas do check-in (May I see…? Are you checking…? Have you left…?)",
+    "airport-vocab": "Vocabulário do check-in (depart, board, delayed, carry-on)",
+    "question-answer-match": "Ligar pergunta à resposta certa",
+    "present-continuous-questions": "Perguntas no Present Continuous (is/are + sujeito + -ing)"
   };
 })();
