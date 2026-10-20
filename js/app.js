@@ -203,8 +203,10 @@
     var session = state.session;
     session.index += 1;
     session.answered = false;
+    session.showTranscript = false;
     session.selected = null;
     session.inputValue = "";
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
     if (session.index < session.queue.length) prepareCurrentOptions();
     renderQuizPanel();
   }
@@ -306,13 +308,75 @@
     );
   }
 
+  // ---- Listening: voz sintetizada do navegador (Web Speech API), funciona offline. ----
+  function listenControlsHtml() {
+    var btn = "rounded-lg border border-indigo-200 bg-white px-3 py-1.5 text-xs font-semibold text-indigo-700 hover:bg-indigo-50";
+    if (!window.speechSynthesis) {
+      return '<p class="text-xs text-rose-600">Seu navegador não tem síntese de voz — use Chrome ou Edge.</p>';
+    }
+    return (
+      '<div class="flex flex-wrap gap-2">' +
+      '<button id="listen-btn" class="' + btn + '">▶ Ouvir</button>' +
+      '<button id="listen-slow-btn" class="' + btn + '">🐢 Ouvir devagar</button>' +
+      '<button id="listen-stop-btn" class="' + btn + '">⏹ Parar</button></div>'
+    );
+  }
+
+  function pickEnglishVoice() {
+    var voices = window.speechSynthesis.getVoices() || [];
+    return (
+      voices.filter(function (v) { return /^en[-_]US/i.test(v.lang); })[0] ||
+      voices.filter(function (v) { return /^en/i.test(v.lang); })[0] ||
+      null
+    );
+  }
+
+  function speak(text, rate) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    u.rate = rate;
+    var voice = pickEnglishVoice();
+    if (voice) u.voice = voice;
+    window.speechSynthesis.speak(u);
+  }
+
+  function wireListenControls(text) {
+    var play = el("listen-btn");
+    if (!play) return;
+    play.addEventListener("click", function () { speak(text, 0.95); });
+    el("listen-slow-btn").addEventListener("click", function () { speak(text, 0.7); });
+    el("listen-stop-btn").addEventListener("click", function () { window.speechSynthesis.cancel(); });
+  }
+
   function renderQuestion(aula, session) {
+
     var item = session.queue[session.index];
     var q = item.question;
     var pct = Math.round((session.index / session.queue.length) * 100);
 
     var passageHtml = "";
-    if (item.passage) {
+    var listenText = q.listen || (item.passage && item.passage.audio) || "";
+    if (item.passage && item.passage.audio) {
+      // Passagem de listening: toca o áudio; a transcrição só aparece depois de responder
+      // (ou quando o aluno pede).
+      passageHtml =
+        '<div class="mb-4 rounded-lg bg-slate-50 border border-slate-200 p-3 text-sm text-slate-700">' +
+        '<p class="mb-2 font-semibold text-slate-500">🎧 ' + escapeHtml(item.passage.title) + "</p>" +
+        listenControlsHtml() +
+        ((session.answered || session.showTranscript)
+          ? '<p class="mt-2">' + escapeHtml(item.passage.audio) + "</p>"
+          : '<button id="transcript-btn" class="mt-2 text-xs text-indigo-600 underline">Mostrar transcrição</button>') +
+        "</div>";
+    } else if (q.listen) {
+      passageHtml =
+        '<div class="mb-4 rounded-lg bg-slate-50 border border-slate-200 p-3 text-sm text-slate-700">' +
+        '<p class="mb-2 font-semibold text-slate-500">🎧 Ouça e responda</p>' +
+        listenControlsHtml() +
+        (session.answered ? '<p class="mt-2 italic">“' + escapeHtml(q.listen) + '”</p>' : "") +
+        "</div>";
+    } else if (item.passage) {
       passageHtml =
         '<div class="mb-4 rounded-lg bg-slate-50 border border-slate-200 p-3 text-sm text-slate-700">' +
         '<p class="mb-1 font-semibold text-slate-500">📖 ' + escapeHtml(item.passage.title) + "</p>" +
@@ -389,6 +453,15 @@
       feedbackHtml +
       '<div class="mt-5 flex justify-end">' + footerBtn + "</div>" +
       "</div>";
+
+    if (listenText) wireListenControls(listenText);
+    var tBtn = el("transcript-btn");
+    if (tBtn) {
+      tBtn.addEventListener("click", function () {
+        session.showTranscript = true;
+        renderQuestion(aula, session);
+      });
+    }
 
     if (mcQuestion && !session.answered) {
       Array.prototype.forEach.call(el("quiz-panel").querySelectorAll(".option-btn"), function (btn) {

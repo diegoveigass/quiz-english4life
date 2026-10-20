@@ -58,6 +58,21 @@
         { title: "News in Levels — notícias em 3 níveis, com áudio", url: "https://www.newsinlevels.com/", type: "leitura" }
       ]
     },
+    // Aula 8: sites de listening indicados na pasta da aula (aula.txt).
+    "pronouns": {
+      label: "Pronomes (sujeito, objeto, possessivos, reflexivos) e this/that",
+      links: [
+        { title: "Vocabulary A1 — Test-English (indicado na aula)", url: "https://test-english.com/vocabulary/a1/", type: "exercício" }
+      ]
+    },
+    "listening-a1": {
+      label: "Listening A1 (rotina, hábitos e ações em andamento)",
+      links: [
+        { title: "What time do you get up? — ELLLO Beginner (indicado na aula)", url: "https://elllo.org/english/begin/L1-15-NatTodd-Time-Habits.htm", type: "áudio" },
+        { title: "What are you doing? — Listening A1 (Test-English)", url: "https://test-english.com/listening/a1/what-are-you-doing-a1-english-listening-test/", type: "áudio" },
+        { title: "How often do you...? — Listening A1 (Test-English)", url: "https://test-english.com/listening/a1/how-often-do-you-a1-english-listening-test/", type: "áudio" }
+      ]
+    },
     // Aula 6 (Air Travel): links verificados no ar em 29/09/2026.
     "air-travel": {
       label: "Inglês no aeroporto (pedidos, instruções e vocabulário de viagem)",
@@ -124,7 +139,20 @@
     "checkin-questions": "air-travel",
     "airport-vocab": "air-travel",
     "question-answer-match": "air-travel",
-    "present-continuous-questions": "continuous"
+    "present-continuous-questions": "continuous",
+    "subject-object-pronouns": "pronouns",
+    "possessive-adjectives": "pronouns",
+    "possessive-pronouns": "pronouns",
+    "reflexive-pronouns": "pronouns",
+    "possessive-s": "pronouns",
+    "this-that-these-those": "pronouns",
+    "pronoun-families": "pronouns",
+    "error-pronouns": "pronouns",
+    "reading-pronouns": "pronouns",
+    "listening-sentences": "listening-a1",
+    "listening-time-habits": "listening-a1",
+    "listening-now": "listening-a1",
+    "listening-frequency": "listening-a1"
   };
 
   // Rótulo amigável (PT-BR) de cada tag de tópico, usado nos painéis de desempenho e no resumo.
@@ -182,6 +210,19 @@
     "checkin-questions": "Perguntas do check-in (May I see…? Are you checking…? Have you left…?)",
     "airport-vocab": "Vocabulário do check-in (depart, board, delayed, carry-on)",
     "question-answer-match": "Ligar pergunta à resposta certa",
-    "present-continuous-questions": "Perguntas no Present Continuous (is/are + sujeito + -ing)"
+    "present-continuous-questions": "Perguntas no Present Continuous (is/are + sujeito + -ing)",
+    "subject-object-pronouns": "Pronome sujeito x objeto (I/me, he/him, they/them)",
+    "possessive-adjectives": "Possessivo + substantivo (my, your, his, her, its, our, their)",
+    "possessive-pronouns": "Possessivo sozinho (mine, yours, hers…) e whose",
+    "reflexive-pronouns": "Reflexivos (myself…) e each other",
+    "possessive-s": "'s e of (Kate's camera / the name of the town)",
+    "this-that-these-those": "This, that, these, those",
+    "pronoun-families": "Famílias de pronomes (ligar formas)",
+    "error-pronouns": "Achar o erro nos pronomes",
+    "reading-pronouns": "Leitura com pronomes",
+    "listening-sentences": "Listening — frases curtas",
+    "listening-time-habits": "Listening — horários e rotina",
+    "listening-now": "Listening — o que está acontecendo agora",
+    "listening-frequency": "Listening — How often…? (frequência)"
   };
 })();
